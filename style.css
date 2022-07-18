@@ -1,0 +1,130 @@
+:root {
+    --prim: #d9534f; /* Primaire neutre */
+    --prim-border: #d43f3a; /* Bordure de primaire */
+    --prim-select: #c9302c; /* Primaire sélectionné (et liens sur blanc) */
+    --prim-select-double: #ac2925; /* Primaire sélectionné double */
+    --prim-select-double-border: #761c19; /* Bordure de primaire sélectionné double */
+    --sec: white; /* Secondaire (liens sur primaire) */
+}
+
+.liens {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.well {
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+    border-radius: 16px !important;
+
+    -moz-box-shadow: 0 0 5px 0 #656565;
+    -webkit-box-shadow: 0 0 5px 0 #656565;
+    -o-box-shadow: 0 0 5px 0 #656565;
+    box-shadow: 0 0 5px 0 #656565;
+}
+
+a {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    overflow-wrap: break-word !important;
+}
+
+img {
+    height: 25vh !important;
+}
+
+.btn-wrap-text {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.page-complete {
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+@media (orientation: portrait) {
+    .page-complete {
+        background-image: url("fondPagePortrait.jpg");
+    }
+}
+
+@media (orientation: landscape) {
+    .page-complete {
+        background-image: url("fondPagePaysage.jpg");
+    }
+}
+
+@media (max-width: 767px) { /* Le background ne sera pas fixe sur mobile (problèmes de performances) */
+    .jumbotron {
+        background-attachment: inherit;
+    }
+}
+
+.page-complete {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    height: 100%;
+    min-height: 100vh;
+}
+
+header {
+    flex: 0 1 auto;
+}
+main {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+.btn-var {
+    color: var(--sec);
+    background-color: var(--prim);
+    border-color: var(--prim-border);
+}
+
+.btn-var.focus, .btn-var:focus {
+    color: var(--sec);
+    background-color: var(--prim-select);
+    border-color: var(--prim-select-double-border);
+}
+
+.btn-var:hover {
+    color: var(--sec);
+    background-color: var(--prim-select);
+    border-color: var(--prim-select-double);
+}
+
+.btn-var.active, .btn-var:active, .open>.dropdown-toggle.btn-var {
+    color: var(--sec);
+    background-color: var(--prim-select);
+    background-image:none;
+    border-color: var(--prim-select-double);
+}
+
+.btn-var.active.focus, .btn-var.active:focus, .btn-var.active:hover, .btn-var:active.focus,
+.btn-var:active:focus, .btn-var:active:hover, .open>.dropdown-toggle.btn-var.focus,
+.open>.dropdown-toggle.btn-var:focus, .open>.dropdown-toggle.btn-var:hover {
+    color: var(--sec);
+    background-color: var(--prim-select-double);
+    border-color: var(--prim-select-double-border);
+}
+
+.btn-var.disabled.focus, .btn-var.disabled:focus, .btn-var.disabled:hover, .btn-var[disabled].focus,
+.btn-var[disabled]:focus, .btn-var[disabled]:hover, fieldset[disabled] .btn-var.focus,
+fieldset[disabled] .btn-var:focus, fieldset[disabled] .btn-var:hover {
+    background-color: var(--prim);
+    border-color: var(--prim-border);
+}
+
+.btn-var .badge {
+    color: var(--prim);
+    background-color: var(--sec)
+}
+
+main {
+    padding-bottom: 15px;
+}
