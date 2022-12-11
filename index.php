@@ -6,10 +6,16 @@ if($_SERVER["HTTPS"] != "on") {
 }
 
 # Aller chercher les liens
-require_once "../connect.php";
+require_once "../secrets.php";
 
 try {
-    $connexion = getConnect();
+    $connexion = new PDO(
+        "mysql:host=" . getenv("SECRET_SQL_SERVER") . ';dbname=' . getenv("SECRET_SQL_DB"),
+        getenv("SECRET_SQL_USER"),
+        getenv("SECRET_SQL_PASSWORD")
+    );
+    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $connexion->query('SET NAMES UTF8MB4'); // UTF8mb4 : Pour pouvoir encoder des émojis
     $prepare = $connexion->prepare(
         "
         SELECT
